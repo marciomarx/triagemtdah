@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triagem de TDAH – NAPED</title>
+  <style>
+    :root {
+      --accent-color: #1a237e; /* Dark indigo */
+      --text-color: #333333;
+      --bg-color: #f5f5f5;
+      --card-bg: #ffffff;
+      --font-family: 'Arial', sans-serif;
+    }
+    * {box-sizing: border-box;}
+    body {
+      margin: 0; padding: 0;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+    header, .disclaimer, .footer {
+      padding: 16px;
+      background-color: var(--card-bg);
+      margin: 8px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8em;
+      color: var(--accent-color);
+    }
+    .disclaimer {
+      border-left: 4px solid var(--accent-color);
+      font-size: 0.9em;
+    }
+    form {
+      padding: 8px;
+      margin: 8px;
+    }
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      margin-bottom: 16px;
+      padding: 16px;
+    }
+    .card legend {
+      font-size: 1.2em;
+      color: var(--accent-color);
+      margin-bottom: 8px;
+    }
+    .questao {
+      margin-bottom: 12px;
+    }
+    .questao p {
+      margin: 0 0 6px 0;
+      font-weight: bold;
+    }
+    .options {
+      display: flex;
+      gap: 16px;
+    }
+    .options label {
+      flex: 1;
+      background-color: var(--bg-color);
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      transition: background-color 0.2s, border-color 0.2s;
+    }
+    .options input {
+      display: none;
+    }
+    .options input:checked + label {
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border-color: var(--accent-color);
+    }
+    button {
+      width: 100%;
+      padding: 14px;
+      font-size: 1em;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+    button:hover {opacity: 0.9;}
+    #resultado {
+      margin: 16px 8px;
+      padding: 16px;
+      background-color: var(--card-bg);
+      color: var(--accent-color);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Triagem de TDAH</h1>
+  </header>
+
+  <div class="disclaimer">
+    <strong>Atenção:</strong> Este questionário é apenas uma ferramenta de triagem e não substitui avaliação de profissional psicólogo ou psiquiatra. Não prevê intervenções sem orientação. Encaminhamentos devem ser realizados ao NAPED ou a profissionais competentes.
+  </div>
+
+  <form id="tdahForm">
+
+    <fieldset class="card">
+      <legend>Seção 1 – Sintomas de Inatenção (marque ≥4)</legend>
+      <div class="questao">
+        <p>1. Dificuldade em manter atenção em aulas e leituras</p>
+        <div class="options">
+          <input type="radio" id="sec1_q1_sim" name="sec1_q1" value="sim"><label for="sec1_q1_sim">Sim</label>
+          <input type="radio" id="sec1_q1_nao" name="sec1_q1" value="nao"><label for="sec1_q1_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>2. Erros por descuido em atividades acadêmicas</p>
+        <div class="options">
+          <input type="radio" id="sec1_q2_sim" name="sec1_q2" value="sim"><label for="sec1_q2_sim">Sim</label>
+          <input type="radio" id="sec1_q2_nao" name="sec1_q2" value="nao"><label for="sec1_q2_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>3. Dificuldade em seguir instruções e completar tarefas</p>
+        <div class="options">
+          <input type="radio" id="sec1_q3_sim" name="sec1_q3" value="sim"><label for="sec1_q3_sim">Sim</label>
+          <input type="radio" id="sec1_q3_nao" name="sec1_q3" value="nao"><label for="sec1_q3_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>4. Desorganização em materiais e prazos acadêmicos</p>
+        <div class="options">
+          <input type="radio" id="sec1_q4_sim" name="sec1_q4" value="sim"><label for="sec1_q4_sim">Sim</label>
+          <input type="radio" id="sec1_q4_nao" name="sec1_q4" value="nao"><label for="sec1_q4_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>5. Esquecimento de compromissos e prazos</p>
+        <div class="options">
+          <input type="radio" id="sec1_q5_sim" name="sec1_q5" value="sim"><label for="sec1_q5_sim">Sim</label>
+          <input type="radio" id="sec1_q5_nao" name="sec1_q5" value="nao"><label for="sec1_q5_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>6. Distração fácil por estímulos irrelevantes</p>
+        <div class="options">
+          <input type="radio" id="sec1_q6_sim" name="sec1_q6" value="sim"><label for="sec1_q6_sim">Sim</label>
+          <input type="radio" id="sec1_q6_nao" name="sec1_q6" value="nao"><label for="sec1_q6_nao">Não</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Seção 2 – Sintomas de Hiperatividade/Impulsividade (marque ≥4)</legend>
+      <div class="questao">
+        <p>1. Inquietação ou dificuldade em permanecer sentado</p>
+        <div class="options">
+          <input type="radio" id="sec2_q1_sim" name="sec2_q1" value="sim"><label for="sec2_q1_sim">Sim</label>
+          <input type="radio" id="sec2_q1_nao" name="sec2_q1" value="nao"><label for="sec2_q1_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>2. Fala excessiva em aula e discussões</p>
+        <div class="options">
+          <input type="radio" id="sec2_q2_sim" name="sec2_q2" value="sim"><label for="sec2_q2_sim">Sim</label>
+          <input type="radio" id="sec2_q2_nao" name="sec2_q2" value="nao"><label for="sec2_q2_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>3. Interrompe colegas ou professores com frequência</p>
+        <div class="options">
+          <input type="radio" id="sec2_q3_sim" name="sec2_q3" value="sim"><label for="sec2_q3_sim">Sim</label>
+          <input type="radio" id="sec2_q3_nao" name="sec2_q3" value="nao"><label for="sec2_q3_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>4. Dificuldade em aguardar a vez em atividades de grupo</p>
+        <div class="options">
+          <input type="radio" id="sec2_q4_sim" name="sec2_q4" value="sim"><label for="sec2_q4_sim">Sim</label>
+          <input type="radio" id="sec2_q4_nao" name="sec2_q4" value="nao"><label for="sec2_q4_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>5. Sensação interna de inquietação ou impaciência</p>
+        <div class="options">
+          <input type="radio" id="sec2_q5_sim" name="sec2_q5" value="sim"><label for="sec2_q5_sim">Sim</label>
+          <input type="radio" id="sec2_q5_nao" name="sec2_q5" value="nao"><label for="sec2_q5_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>6. Dificuldade em atividades silenciosas ou tranquilas</p>
+        <div class="options">
+          <input type="radio" id="sec2_q6_sim" name="sec2_q6" value="sim"><label for="sec2_q6_sim">Sim</label>
+          <input type="radio" id="sec2_q6_nao" name="sec2_q6" value="nao"><label for="sec2_q6_nao">Não</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="card">
+      <legend>Seção 3 – Impacto no Desempenho Acadêmico (marque ≥1)</legend>
+      <div class="questao">
+        <p>1. Perda frequente de prazos e compromissos</p>
+        <div class="options">
+          <input type="radio" id="sec3_q1_sim" name="sec3_q1" value="sim"><label for="sec3_q1_sim">Sim</label>
+          <input type="radio" id="sec3_q1_nao" name="sec3_q1" value="nao"><label for="sec3_q1_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>2. Notas abaixo do potencial mesmo com esforço</p>
+        <div class="options">
+          <input type="radio" id="sec3_q2_sim" name="sec3_q2" value="sim"><label for="sec3_q2_sim">Sim</label>
+          <input type="radio" id="sec3_q2_nao" name="sec3_q2" value="nao"><label for="sec3_q2_nao">Não</label>
+        </div>
+      </div>
+      <div class="questao">
+        <p>3. Dificuldade em concluir trabalhos acadêmicos</p>
+        <div class="options">
+          <input type="radio" id="sec3_q3_sim" name="sec3_q3" value="sim"><label for="sec3_q3_sim">Sim</label>
+          <input type="radio" id="sec3_q3_nao" name="sec3_q3" value="nao"><label for="sec3_q3_nao">Não</label>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="button" id="calculateBtn">Calcular Resultado</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <div class="footer">
+    Produzido para o Professor Márcio Marques (@profmarciomarx). Este formulário não é destinado a outros fins a não ser uso interno e apoio ao professor no encaminhamento ou não do acadêmico.
+  </div>
+
+  <script>
+    function getValue(name) {
+      const el = document.querySelector(`input[name="${name}"]:checked`);
+      return el ? el.value : 'nao';
+    }
+    function calculateScore() {
+      let sec1 = 0, sec2 = 0, sec3 = 0;
+      for (let i = 1; i <= 6; i++) if (getValue(`sec1_q${i}`) === 'sim') sec1++;
+      for (let i = 1; i <= 6; i++) if (getValue(`sec2_q${i}`) === 'sim') sec2++;
+      for (let i = 1; i <= 3; i++) if (getValue(`sec3_q${i}`) === 'sim') sec3++;
+      const encaminhar = ((sec1 >= 4) || (sec2 >= 4)) && (sec3 >= 1);
+      let msg = `Seção 1: ${sec1} “Sim”, Seção 2: ${sec2} “Sim”, Seção 3: ${sec3} “Sim”.\n`;
+      msg += encaminhar 
+        ? "Resultado: ENCAMINHAR ao NAPED."
+        : "Resultado: NÃO é necessário encaminhar.";
+      document.getElementById('resultado').innerText = msg;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('calculateBtn').addEventListener('click', calculateScore);
+    });
+  </script>
+
+</body>
+</html>
